@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Monochrome Landing Page</title>
+
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    nav { display: flex; gap: 30px; }
+    nav a {
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f5c542;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    .toggle { display: none; flex-direction: column; cursor: pointer; }
+    .toggle span { height: 3px; width: 25px; background: white; margin: 4px 0; transition: 0.3s; }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')
+        center/cover no-repeat;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      z-index: 1;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      background: linear-gradient(to right, #fff, #f5c542);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      z-index: 1;
+      color: #ddd;
+    }
+    .hero button {
+      padding: 14px 40px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background: #f5c542;
+      color: #000;
+      cursor: pointer;
+      transition: 0.4s;
+      z-index: 1;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .hero button:hover { background: white; color: black; transform: scale(1.08); }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 50px;
+      padding: 120px 80px;
+      background: #111;
+    }
+    .feature {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 50px 30px;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: 0.6s ease;
+    }
+    .feature h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: #f5c542;
+    }
+    .feature p { font-size: 1rem; line-height: 1.6; color: #ccc; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    footer p { font-size: 0.9rem; color: #888; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 70px; right: 20px; padding: 20px; border-radius: 10px; }
+      nav.show { display: flex; }
+      .toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Monochrome Luxe</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="toggle" id="toggleBtn">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Luxury Redefined</h1>
+    <p>Experience the elegance in DNA</p>
+    <button>Discover More</button>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>⚡ Performance</h3>
+      <p>Engineered for speed with optimized code and design.</p>
+    </div>
+    <div class="feature">
+      <h3>📱 Responsive</h3>
+      <p>Seamlessly adapts to all devices and screen sizes.</p>
+    </div>
+    <div class="feature">
+      <h3>🎨 Aesthetic</h3>
+      <p>A timeless black & white theme with a golden accent.</p>
+    </div>
+    <div class="feature">
+      <h3>🔒 Secure</h3>
+      <p>Premium security practices built into every section.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Monochrome Luxe | Crafted with Elegance ✨</p>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    // Navbar toggle
+    const toggleBtn = document.getElementById('toggleBtn');
+    const nav = document.querySelector('nav');
+    toggleBtn.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // GSAP Hero Animations
+    gsap.from(".hero h1", { y: 80, opacity: 0, duration: 1.5, ease: "power3.out" });
+    gsap.from(".hero p", { y: 50, opacity: 0, duration: 1.2, delay: 0.3, ease: "power2.out" });
+    gsap.from(".hero button", { scale: 0.5, opacity: 0, duration: 1, delay: 0.6, ease: "elastic.out(1, 0.5)" });
+
+    // Scroll animation for features
+    const features = document.querySelectorAll(".feature");
+    window.addEventListener("scroll", () => {
+      const triggerBottom = window.innerHeight * 0.8;
+      features.forEach(feature => {
+        const boxTop = feature.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          gsap.to(feature, { y: 0, opacity: 1, duration: 1, ease: "power2.out" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
